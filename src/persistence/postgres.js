@@ -1,7 +1,8 @@
 const waitPort = require('wait-port');
 const fs = require('fs');
 const {Client, Pool} = require('pg');
-const postgres = new Client();
+require('dotenv').config();
+
 
 const {
     PGHOST: HOST,
@@ -13,9 +14,16 @@ const {
 let pool;
 
 async function init() {
-    pool = new Pool(); 
+    pool = new Pool({
+		user: USER,
+		host: HOST,
+		database: DB,
+		password: PASSWORD,
+		port: 5432,
+});
 
     await pool.connect();
+	console.log(`Connected to PostgreSQL at ${HOST}`);
 
     return new Promise((acc, rej) => {
         pool.query(
@@ -29,6 +37,10 @@ async function init() {
         );
     });
 }
+	module.exports = {
+		init,
+};
+
 
 async function teardown() {
     return new Promise((acc, rej) => {

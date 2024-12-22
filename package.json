@@ -9,13 +9,18 @@
     "dev": "nodemon src/index.js"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^6.2.1",
     "@types/react-native": "^0.70.4",
+    "dotenv": "^16.4.7",
     "express": "^4.17.1",
     "pg": "^8.8.0",
+    "react-dom": "^18.3.1",
+    "react-spring": "^9.7.5",
     "sqlite3": "latest",
     "uuid": "^3.3.3",
-    "wait-port": "^0.2.2",
-    "dotenv": "latest"
+    "wait-port": "^0.2.2"
   },
   "resolutions": {
     "ansi-regex": "5.0.1"
